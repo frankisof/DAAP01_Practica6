@@ -11,7 +11,7 @@
 <body>
   <div class="container">
     <div class="header">
-      <h1>Personas</h1>
+      <h1>Empleados</h1>
     </div>
     <button type="button" (click)="addPersona()">
       <i class="fas fa-plus"></i> Agregar
@@ -19,7 +19,7 @@
     <button type="button" (click)="updatePersona()">
       <i class="fas fa-edit"></i> Actualizar
     </button>
-    <button type="button" (click)="deletePersona(currentPersona.id)">
+    <button type="button" (click)="deletePersona(currentPersona.clave)">
       <i class="fas fa-trash-alt"></i> Eliminar
     </button>
     <button type="button" (click)="buscarPersona()">
@@ -31,7 +31,7 @@
     <form class="form-row">
       <div class="form-group">
         <label for="id">ID:</label>
-        <input type="text" id="id" [(ngModel)]="currentPersona.id" name="id">
+        <input type="text" id="id" [(ngModel)]="currentPersona.clave" name="id">
       </div>
       <div class="form-group">
         <label for="name">Nombre:</label>
@@ -58,7 +58,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let persona of personas">
-          <td>{{ persona.id }}</td>
+          <td>{{ persona.clave }}</td>
           <td>{{ persona.nombre }}</td>
           <td>{{ persona.direccion }}</td>
           <td>{{ persona.telefono }}</td>

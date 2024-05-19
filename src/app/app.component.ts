@@ -9,7 +9,7 @@ import { Persona } from './models/persona.model';
 })
 export class AppComponent implements OnInit {
   personas: Persona[] = [];
-  currentPersona: Persona = { id: '', nombre: '', direccion: '', telefono: '' };
+  currentPersona: Persona = { clave: '', nombre: '', direccion: '', telefono: '' };
 
   constructor(private personaService: PersonaService) {}
 
@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
   }
 
   updatePersona(): void {
-    this.personaService.updatePersona(this.currentPersona.id, this.currentPersona).subscribe(() => {
+    this.personaService.updatePersona(this.currentPersona.clave, this.currentPersona).subscribe(() => {
       this.loadPersonas();
       this.resetForm();
     });
@@ -52,11 +52,11 @@ export class AppComponent implements OnInit {
   }
 
   resetForm(): void {
-    this.currentPersona = { id: '', nombre: '', direccion: '', telefono: '' };
+    this.currentPersona = { clave: '', nombre: '', direccion: '', telefono: '' };
   }
   buscarPersona(): void {
-    if (this.currentPersona.id) {
-      this.personaService.getPersona(this.currentPersona.id).subscribe(persona => {
+    if (this.currentPersona.clave) {
+      this.personaService.getPersona(this.currentPersona.clave).subscribe(persona => {
         if (persona) {
           this.currentPersona = persona;
         } else {
